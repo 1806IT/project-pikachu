@@ -18,7 +18,7 @@ body{
 div.actions{
     position: fixed;
     right: 10%;
-    top: 15%;
+    top: 5%;
     margin-right: 10px;
     display: flex;
     flex-direction: column;
