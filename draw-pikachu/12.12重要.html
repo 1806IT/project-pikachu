@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS Bin</title>
+    <style>
+        .tab-container {
+            width: 300px;
+            border: 1px solid #ccc;
+        }
+        .tab-header {
+            background: #eee;
+            display: flex;
+        }
+        .tab-header>div {
+            flex: 1;
+            text-align: center;
+            line-height: 30px;
+            border-right: 1px solid #ccc;
+        }
+        .tab-header .active {
+            color: red;
+        }
+        .tab-panels>div {
+            display: none;
+            height: 100px;
+            padding: 20px;
+        }
+        .tab-panels .active {
+            display: block;
+
+        }
+    </style>
+</head>
+<body>
+<div class="tab-container">
+    <div class="tab-header">
+        <div class="">前端</div>
+        <div class="active">Java</div>
+        <div>Python</div>
+    </div>
+    <div class="tab-panels">
+        <div class="">欢迎来饥人谷学前端</div>
+        <div class="active">欢迎来饥人谷学Java</div>
+        <div>欢迎来饥人谷学Python</div>
+    </div>
+</div>
+
+<div class="tab-container">
+    <div class="tab-header">
+        <div class="">前端</div>
+        <div class="active">Java</div>
+        <div>Python</div>
+    </div>
+    <div class="tab-panels">
+        <div class="">欢迎来饥人谷学前端</div>
+        <div class="active">欢迎来饥人谷学Java</div>
+        <div>欢迎来饥人谷学Python</div>
+    </div>
+</div>
+<div class="tab-container">
+    <div class="tab-header">
+        <div class="">前端</div>
+        <div class="active">Java</div>
+        <div>Python</div>
+    </div>
+    <div class="tab-panels">
+        <div class="">欢迎来饥人谷学前端</div>
+        <div class="active">欢迎来饥人谷学Java</div>
+        <div>欢迎来饥人谷学Python</div>
+    </div>
+</div>
+<div class="tab-container">
+    <div class="tab-header">
+        <div class="">前端</div>
+        <div class="active">Java</div>
+        <div>Python</div>
+    </div>
+    <div class="tab-panels">
+        <div class="">欢迎来饥人谷学前端</div>
+        <div class="active">欢迎来饥人谷学Java</div>
+        <div>欢迎来饥人谷学Python</div>
+    </div>
+</div>
+<script>
+    /*
+    let tabs = document.querySelectorAll('.tab-header>div')
+    let panels = document.querySelectorAll('.tab-panels>div')
+    tabs.forEach(tab=>{
+      tab.onclick = function() {
+        let curIndex = 0
+        tabs.forEach((tab, index)=>{
+          tab.classList.remove('active')
+          if(this === tab) {
+            curIndex = index
+          }
+        })
+        this.classList.add('active')
+        panels.forEach(panel=>panel.classList.remove('active'))
+        panels[curIndex].classList.add('active')
+      }
+    })
+    */
+
+    /*
+    var Tab = {
+      init: function() {
+        this.tabs =  document.querySelectorAll('.tab-header>div')
+        this.panels = document.querySelectorAll('.tab-panels>div')
+        this.bind()
+      },
+      bind: function(){
+        var self = this
+        self.tabs.forEach(tab=>{
+          tab.onclick = function() {
+            let curIndex = 0
+            self.tabs.forEach((tab, index)=>{
+              tab.classList.remove('active')
+              if(this === tab) {
+                curIndex = index
+              }
+            })
+            this.classList.add('active')
+            self.panels.forEach(panel=>panel.classList.remove('active'))
+            self.panels[curIndex].classList.add('active')
+          }
+        })
+      }
+    }
+
+    Tab.init()
+    */
+
+    function Tab(container) {
+        this.container = container
+        this.init()
+        this.bind()
+    }
+
+    Tab.prototype.init = function() {
+        this.tabs =  this.container.querySelectorAll('.tab-header>div')
+        this.panels = this.container.querySelectorAll('.tab-panels>div')
+    }
+
+    Tab.prototype.bind = function() {
+        var self = this
+        self.tabs.forEach(tab=>{
+            tab.onclick = function() {
+                let curIndex = 0
+                self.tabs.forEach((tab, index)=>{
+                    tab.classList.remove('active')
+                    if(this === tab) {
+                        curIndex = index
+                    }
+                })
+                this.classList.add('active')
+                self.panels.forEach(panel=>panel.classList.remove('active'))
+                self.panels[curIndex].classList.add('active')
+            }
+        })
+    }
+
+    document.querySelectorAll('.tab-container').forEach(container=>{
+        new Tab(container)
+    })
+    //let tab1 = new Tab(document.querySelectorAll('.tab-container')[0])
+    //let tab2 = new Tab(document.querySelectorAll('.tab-container')[1])
+
+
+
+
+
+</script>
+</body>
+</html>
+</body>
+</html>
